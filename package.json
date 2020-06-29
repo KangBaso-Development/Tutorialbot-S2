@@ -1,0 +1,20 @@
+{
+  "name": "tutorial-bot",
+  "version": "1.0.0",
+  "description": "A tutorial Discord Bot, by Blob Development.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "discord.js": "^12.2.0",
+    "node-superfetch": "^0.1.10",
+    "quick.db": "^7.1.1",
+    "parse-ms": "^2.0.0"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "license": "Apache-2.0"
+}
