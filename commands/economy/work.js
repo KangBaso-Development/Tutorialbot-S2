@@ -9,7 +9,7 @@ exports.run = async(client, message, args) => {
   if (worked != null && timeoutworked - (Date.now() - worked) > 0) {
     let time = ms(timeoutworked -(Date.now() - worked));
    return message.reply(`You already worked wellcome back in ${time.hours}h ${time.minutes}m ${time.seconds}s`)
-    
+    }
   if (!args[0]) {
 let vembed = new Discord.MessageEmbed()
 .setColor("RED")
@@ -64,8 +64,6 @@ db.add(`money_${message.author.id}`, amount)
 db.set(`worked_${message.author.id}`, Date.now())
 }
  
- 
-  }
 }
 exports.help = {
          name: "work",
