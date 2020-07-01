@@ -9,11 +9,11 @@ exports.run = async(client, message, args) => {
   if (worked != null && timeoutworked - (Date.now() - worked) > 0) {
     let time = ms(timeoutworked -(Date.now() - worked));
    return message.reply(`You already worked wellcome back in ${time.hours}h ${time.minutes}m ${time.seconds}s`)
-    
+  }
   if (!args[0]) {
 let vembed = new Discord.MessageEmbed()
 .setColor("RED")
-.setDescription(`Invalid Work \n Valid Work: \n1.Bot-Developer\n2.Akang-Baso\n3.Manager\n4.Youtuber`)
+.setDescription(`\`\`\`Valid Work: \n1.Bot-Developer\n2.Akang-Baso\n3.Manager\n4.Youtuber\`\`\``)
 return message.channel.send(vembed)
   } else if (args[0] === "Bot-Developer") {
     let minA = 200
@@ -47,7 +47,7 @@ let amount = Math.floor(Math.random() * (minA - maxA + 1))  + minA;
 let embed = new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL())
-.setDescription(`You worked as Akang-Baso and Earn ${amount}`)
+.setDescription(`You worked as Manager and Earn ${amount}`)
 message.channel.send(embed)
 db.add(`money_${message.author.id}`, amount)
 db.set(`worked_${message.author.id}`, Date.now())
@@ -58,14 +58,14 @@ let amount = Math.floor(Math.random() * (minA - maxA + 1))  + minA;
 let embed = new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL())
-.setDescription(`You worked as Akang-Baso and Earn ${amount}`)
+.setDescription(`You worked as Youtuber and Earn ${amount}`)
 message.channel.send(embed)
 db.add(`money_${message.author.id}`, amount)
 db.set(`worked_${message.author.id}`, Date.now())
 }
  
  
-  }
+  
 }
 exports.help = {
          name: "work",

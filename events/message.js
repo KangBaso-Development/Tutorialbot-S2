@@ -1,4 +1,5 @@
 const Discord = require("discord.js"), cooldowns = new Discord.Collection();
+const { addexp } = require('../handler/xp.js');
 // cooldowns will store the user when they are still in the cooldown mode.
 
 module.exports = async (client, message) => {
@@ -61,6 +62,7 @@ module.exports = async (client, message) => {
   try {
     if (!commandFile) return;
     commandFile.run(client, message, args);
+    return addexp(message)
   } catch (error) {
     console.log(error.message);
   } finally {
