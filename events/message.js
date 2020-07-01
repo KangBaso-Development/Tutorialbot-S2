@@ -1,4 +1,5 @@
 const Discord = require("discord.js"), cooldowns = new Discord.Collection();
+const { addexp } = require('../handler/xp.js')
 // cooldowns will store the user when they are still in the cooldown mode.
 
 module.exports = async (client, message) => {
@@ -7,13 +8,6 @@ module.exports = async (client, message) => {
   
   let prefix = client.config.prefix;
   
-  let inviteLink = ["discord.gg", "discord.com/invite", "discordapp.com/invite"];
-  
-  if (inviteLink.some(word => message.content.toLowerCase().includes(word))) {
-    await message.delete();
-    return message.channel.send("Bro, you can't promote your server here!")
-    .then(m => m.delete({timeout: 10000})) // Add this if you want the message automatically deleted.
-  }
   
   // If the user doesn't doing any to the bot, return it.
   if (!message.content.startsWith(prefix)) return;
@@ -61,6 +55,7 @@ module.exports = async (client, message) => {
   try {
     if (!commandFile) return;
     commandFile.run(client, message, args);
+return addexp(message)
   } catch (error) {
     console.log(error.message);
   } finally {
